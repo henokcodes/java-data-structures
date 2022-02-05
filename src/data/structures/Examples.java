@@ -9,9 +9,29 @@ public class Examples {
 	
 		System.out.println("Hello");
 		Examples object = new Examples();
-		System.out.println(Arrays.toString(object.DutchSort(new int[] {2,1,0,0,3,2} )));
+		System.out.println(object.isHollow(new int[] {2,1,0,0,0,3,2} ));
 		
 } 
+	 int isHollow(int[] a) {
+	        int left= 0, right=0, sum=0, mid= a.length/2;
+
+//	        System.out.println(mid);
+	        for(int i=0; i<mid; i++){
+	            if(a[i]!=0) left++;
+	        }
+//	        System.out.println(left);
+	        for(int j=a.length-1; j>=mid; j--){
+	            if(a[j]!=0) right++;
+	        }
+
+//	        System.out.println(right);
+	        sum = left + right;
+//	        System.out.println(sum);
+
+	       return a.length - sum >=3 && left==right ? 1: 0;
+
+	    }
+	 
 	int[] DutchSort(int[] arr) {
 		
 		int i=0,j=0;
