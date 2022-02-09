@@ -9,9 +9,29 @@ public class Examples {
 	
 		System.out.println("Hello");
 		Examples object = new Examples();
-		System.out.println(object.isHollow(new int[] {2,1,0,0,0,3,2} ));
+		System.out.println(object.isMagicArray(new int[]{10, 5, 5} ));
 		
 } 
+	
+	int isMagicArray (int[ ] a) {
+		int sum = 0;
+		for(int i=0;i<a.length;i++) {
+			if(a[i]>0 && isPrime(a[i])==1) sum+=a[i];
+		}
+		
+		return sum == a[0]? 1:0;
+		
+	}
+
+	  int isPrime(int n){
+	         if (n <= 1)
+	            return 0;
+	        // Check from 2 to n-1
+	        for (int i = 2; i < n; i++)
+	            if (n % i == 0)
+	                return 0;
+	        return 1;
+	    }
 	 int isHollow(int[] a) {
 	        int left= 0, right=0, sum=0, mid= a.length/2;
 
@@ -102,4 +122,8 @@ public class Examples {
 		}
 		return arr;
 	}
+	
+	
+	
+	
 }

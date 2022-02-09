@@ -21,8 +21,7 @@ public class LinkedListEg<T extends Comparable<T>> implements List<T> {
 			root = new Node<>(data);
 		}else {
 			insertBeginning(data);
-		}
-		
+		}		
 	}
 	
 	public void insertBeginning(T data) {
@@ -78,8 +77,7 @@ public class LinkedListEg<T extends Comparable<T>> implements List<T> {
 		while(actualNode!= null) {
 			System.out.println(actualNode);
 			actualNode = actualNode.getNextNode();
-		}
-		
+		}	
 	}
 
 	@Override
@@ -87,7 +85,6 @@ public class LinkedListEg<T extends Comparable<T>> implements List<T> {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
 }
 
 
