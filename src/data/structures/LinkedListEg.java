@@ -3,8 +3,12 @@ package data.structures;
 public class LinkedListEg<T extends Comparable<T>> implements List<T> {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-  
+		
+		LinkedListEg<String> names = new LinkedListEg<>();
+		names.insert("java");
+		names.insert("node");
+		names.insert("js");
+		names.traverse();
 	}
 
 	private Node<T> root;
@@ -39,8 +43,30 @@ public class LinkedListEg<T extends Comparable<T>> implements List<T> {
 
 	@Override
 	public void remove(T data) {
+		if(root!=null) return;
+		
+		if(root.getData().compareTo(data)==0 ) {
+			root = root.getNextNode();
+		}else {
+			remove(data, root, root.getNextNode());
+		}
 		// TODO Auto-generated method stub
 		
+	}
+	
+	private void remove(T data, Node<T> previousNode, Node<T> actualNode) {
+			
+		while(actualNode !=null) {
+			if(actualNode.getData().compareTo(data)==0) {
+				numOfItems--;
+				previousNode.setNextNode(actualNode.getNextNode());
+				actualNode = null;
+				return;
+			}
+			
+			previousNode= actualNode;
+			actualNode = actualNode.getNextNode();
+		}
 	}
 
 	@Override
@@ -63,3 +89,18 @@ public class LinkedListEg<T extends Comparable<T>> implements List<T> {
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
