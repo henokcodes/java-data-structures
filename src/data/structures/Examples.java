@@ -9,9 +9,77 @@ public class Examples {
 	
 		System.out.println("Hello");
 		Examples object = new Examples();
-		System.out.println(object.isMagicArray(new int[]{10, 5, 5} ));
+//		System.out.println(object.isComplete(new int[]{-5, 6, 2, 3, 2, 4, 5, 11, 8, 7} ));
 		
+		System.out.println(object.isPrimeProduct(8));
 } 
+	
+	 int isPrimeProduct(int n) {
+		 for(int i=2;i<n;i++) {
+			 if(n%i==0 && isPrime(i)==1) {
+				 if(i*i==n) return 1;
+				 else if(isPrime(n/i)==1) return 1;
+			 }
+		 }
+		 return 0;
+	 }
+	
+	 int isComplete (int[ ] a) {
+			 int min=0, max=0,counteven=0;
+			 for(int i=0; i<a.length; i++){
+			 if(a[i]%2==0){
+			 min = a[i];
+			 max = a[i];
+			 break;
+			 }
+			 
+			 }
+			 for(int j=0; j<a.length; j++){
+			 if(a[j]%2==0){
+			 counteven++;
+			 if(max<a[j])
+			 max=a[j];
+			 if(min>a[j])
+			 min = a[j];
+			 }
+			 }
+			 int x = (max-min)-1;
+			 int count=0;
+			 int y = min+1;
+			 for(int m=0; m<a.length; m++){
+			 if(y==a[m] && y<max){
+			 count++;
+			 y++;
+			 m=-1;
+			 }
+			 }
+			 if(count == x)
+			 return 1;
+			 return 0;
+			 
+//		 boolean containsEven = false;
+//		 int min = Integer.MAX_VALUE;
+//		 int max = Integer.MIN_VALUE;
+//		 int count  = 0;
+//		 for(int i=0;i<a.length;i++) {
+//			 if(a[i]%2==0) {
+//				 if(a[i]<min) min = a[i];
+//				 if(a[i]>max) max = a[i];
+//				 containsEven = true;
+//			 }
+//		 }
+//		 int x= min;
+//		 for(int i=0;i<a.length;i++) {
+//			while(x<max) {
+//				if(a[i]==x) count++;
+//				x++;
+//			}
+//		 }
+//		 System.out.println(count);
+//		 
+//		 return  containsEven && min != max ? 1:0;
+		 
+}
 	
 	int isMagicArray (int[ ] a) {
 		int sum = 0;
@@ -22,6 +90,7 @@ public class Examples {
 		return sum == a[0]? 1:0;
 		
 	}
+	
 
 	  int isPrime(int n){
 	         if (n <= 1)
