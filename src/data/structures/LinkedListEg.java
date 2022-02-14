@@ -83,7 +83,7 @@ public class LinkedListEg<T extends Comparable<T>> implements List<T> {
 	@Override
 	public int size() {
 		// TODO Auto-generated method stub
-		return 0;
+		return numOfItems;
 	}
 }
 
