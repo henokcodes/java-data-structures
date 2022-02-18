@@ -36,6 +36,44 @@ public class Examples {
 	        // Given string is a palindrome
 	        return true;
 	    }
+	   public static int[][] pascal(int n)
+	    {
+	        /**
+	         * @param arr  An auxiliary array to store generated pascal triangle values
+	         * @return
+	         */
+	        int[][] arr = new int[n][n];
+	        /**
+	         * @param line Iterate through every line and print integer(s) in it
+	         * @param i Represents the column number of the element we are currently on
+	         */
+	        for (int line = 0; line < n; line++)
+	        {
+	            /**
+	             *  @Every line has number of integers equal to line number
+	             */
+	            for (int i = 0; i <= line; i++)
+	            {
+	                // First and last values in every row are 1
+	                if (line == i || i == 0)
+	                    arr[line][i] = 1;
+	                    // The rest elements are sum of values just above and left of above
+	                else
+	                    arr[line][i] = arr[line-1][i-1] + arr[line-1][i];
+	            }
+	        }
+	        
+	        return arr;
+	    }
+	   public  int absMax(int[] numbers) {
+	        int absMaxValue = numbers[0];
+	        for (int i = 1, length = numbers.length; i < length; ++i) {
+	            if (Math.abs(numbers[i]) > Math.abs(absMaxValue)) {
+	                absMaxValue = numbers[i];
+	            }
+	        }
+	        return absMaxValue;
+	    }
 	
 	 int isPrimeProduct(int n) {
 		 for(int i=2;i<n;i++) {
