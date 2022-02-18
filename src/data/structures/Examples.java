@@ -1,7 +1,9 @@
 package data.structures;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 
 public class Examples {
 
@@ -36,7 +38,50 @@ public class Examples {
 	        // Given string is a palindrome
 	        return true;
 	    }
-	   public static int[][] pascal(int n)
+	   
+	   
+	   public double median(int[] values) {
+	        Arrays.sort(values);
+	        int length = values.length;
+	        return length % 2 == 0
+	                ? (values[length / 2] + values[length / 2 - 1]) / 2.0
+	                : values[length / 2];
+	    }
+	   
+	   
+	   
+	   
+	   public int[] mode(int[] numbers) {
+
+	        if (numbers.length == 0) {
+	            return null;
+	        }
+
+	        HashMap<Integer, Integer> count = new HashMap<>();
+
+	        for (int num : numbers) {
+	            if (count.containsKey(num)) {
+
+	                count.put(num, count.get(num) + 1);
+
+	            } else {
+
+	                count.put(num, 1);
+	            }
+	        }
+
+	        int max = Collections.max(count.values());
+	        ArrayList<Integer> modes = new ArrayList<>();
+
+	        for (int num : count.keySet()) {
+	            if (count.get(num) == max) {
+	                modes.add(num);
+	            }
+	        }
+	        return modes.stream().mapToInt(n -> n).toArray();
+	    }
+	   
+	   public int[][] pascal(int n)
 	    {
 	        /**
 	         * @param arr  An auxiliary array to store generated pascal triangle values
