@@ -31,10 +31,10 @@ public class MaxStack {
 		 mainStack.push(item);
 		 
 		 //first item is the same in both stacks
-//		 if(mainStack.size()==1) {
+		 if(mainStack.size()==1) {
 			 maxStack.push(item);
-		//	 return;
-		 //}
+			 return;
+		 }
 		 
 		 //if the item is the largest, insert it into max stack
 		 if(item>maxStack.peek()){
