@@ -43,6 +43,15 @@ public static void main(String[] args) {
 	
 	}
 	
+	 public T peek()
+	    {
+		 if(isEmpty()) return null;
+			
+			T item = stack[count];
+			
+			return item;
+	    }
+	
 	public T pop() {
 		if(isEmpty()) return null;
 		
