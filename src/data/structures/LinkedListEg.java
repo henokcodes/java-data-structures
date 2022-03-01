@@ -6,14 +6,16 @@ public class LinkedListEg<T extends Comparable<T>> implements List<T> {
 		
 		LinkedListEg<Person> people = new LinkedListEg<>();
 
-		Person p1 = new Person(22,"Enok");
 		people.insert(new Person(22,"Enok"));
 		people.insert(new Person(24,"Aman"));
+		people.insert(new Person(24,"Bk"));
+		people.insert(new Person(24,"Malik"));
 		people.insert(new Person(24,"Berne"));
 		System.out.println(people.size());
-		people.remove(p1);
+//		people.remove(p1);
+		System.out.println(people.findMiddle());
 		System.out.println(people.size());
-		people.traverse();
+//		people.traverse();
 		
 		
 
@@ -98,6 +100,21 @@ public class LinkedListEg<T extends Comparable<T>> implements List<T> {
 		return items;
 	}
 
+	public T findMiddle(){
+		Node<T> actualNode = root;
+		if(root==null) return null;
+		if(items%2==0) return null;
+		else {
+			
+			for(int i=1;actualNode!=null && i<items/2+1;i++) {
+				actualNode = actualNode.getNextNode();
+			}
+			
+			
+		}
+		return actualNode.getData();
+		
+	}
 	
 }
 
