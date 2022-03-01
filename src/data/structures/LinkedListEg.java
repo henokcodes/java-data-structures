@@ -4,60 +4,71 @@ public class LinkedListEg<T extends Comparable<T>> implements List<T> {
 
 	public static void main(String[] args) {
 		
-		LinkedListEg<String> names = new LinkedListEg<>();
-		names.insert("java");
-		names.insert("node");
-		names.insert("js");
-		names.traverse();
-	}
+		LinkedListEg<Person> people = new LinkedListEg<>();
 
-	private Node<T> root;
-	private int numOfItems;
+		Person p1 = new Person(22,"Enok");
+		people.insert(new Person(22,"Enok"));
+		people.insert(new Person(24,"Aman"));
+		people.insert(new Person(24,"Berne"));
+		System.out.println(people.size());
+		people.remove(p1);
+		System.out.println(people.size());
+		people.traverse();
+		
+		
+
+		
+	}
 	
+	private Node<T> root;
+	private int items;
+
 	@Override
 	public void insert(T data) {
 		// TODO Auto-generated method stub
-		if(root==null) {
-			root = new Node<>(data);
-		}else {
-			insertBeginning(data);
-		}		
+		items++;
+		if(root==null) root = new Node<>(data);
+		
+		else {
+			insertEnd(data);
+		}
+		
 	}
-	
-	public void insertBeginning(T data) {
+	private void insertBeginning(T data) {
 		Node<T> newNode = new Node<>(data);
 		newNode.setNextNode(root);
 		root = newNode;
 	}
-	
-	public void insertEnd(T data, Node<T> node) {
-		if(node.getNextNode() != null) {
-			insertEnd(data, node.getNextNode());
-		}else {
-			//last node
-			Node<T> newNode = new Node<>(data);
-			newNode.setNextNode(newNode);
+	private void insertEnd(T data) {
+		Node<T> newNode = new Node<>(data);
+		Node<T> lastNode = root;
+		while(lastNode.getNextNode()!=null) {
+			lastNode = lastNode.getNextNode();
 		}
+		
+		lastNode.setNextNode(newNode);
+		newNode.setNextNode(null);
+		
+		
 	}
 
 	@Override
 	public void remove(T data) {
-		if(root!=null) return;
-		
-		if(root.getData().compareTo(data)==0 ) {
-			root = root.getNextNode();
-		}else {
+		// TODO Auto-generated method stub
+		items--;
+		if(root==null) return;
+		if(root.getData().compareTo(data)==0) root = root.getNextNode();
+		else {
 			remove(data, root, root.getNextNode());
 		}
-		// TODO Auto-generated method stub
 		
 	}
-	
+
 	private void remove(T data, Node<T> previousNode, Node<T> actualNode) {
-			
+		
 		while(actualNode !=null) {
 			if(actualNode.getData().compareTo(data)==0) {
-				numOfItems--;
+				items--;
 				previousNode.setNextNode(actualNode.getNextNode());
 				actualNode = null;
 				return;
@@ -66,25 +77,28 @@ public class LinkedListEg<T extends Comparable<T>> implements List<T> {
 			previousNode= actualNode;
 			actualNode = actualNode.getNextNode();
 		}
+		
 	}
-
 	@Override
 	public void traverse() {
 		// TODO Auto-generated method stub
-		if(root!=null) return;
+		if(root ==null) return;
 		Node<T> actualNode = root;
 		
-		while(actualNode!= null) {
+		while(actualNode != null) {
 			System.out.println(actualNode);
-			actualNode = actualNode.getNextNode();
-		}	
+			actualNode= actualNode.getNextNode();
+		}
+		
 	}
 
 	@Override
 	public int size() {
 		// TODO Auto-generated method stub
-		return numOfItems;
+		return items;
 	}
+
+	
 }
 
 
