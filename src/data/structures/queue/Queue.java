@@ -69,5 +69,74 @@ public static void main(String[] args) {
 		
 	}
 	
+	//Queue implementation using Array
+//	private T[] queue;
+//	   private Node<T> root;
+//	    private int count;
+//	    
+//	    public Queue(){
+//	        queue = (T[]) new Object[1];
+//	    }
+//
+//
+//	    public void enqueue(T data){
+//	        
+//	       
+//	         if(count == queue.length){
+//	            resize(count*2);
+//	        }
+//	        queue[count++]= data;
+//
+//
+//	    }
+//
+//	    private void resize(int capacity){
+//
+//	        System.out.println("resizing");
+//	        T[] newQueue = (T[]) new Object[capacity];
+//
+//	        for(int i=0;i<count;i++)
+//	            newQueue[i] = queue[i];
+//
+//
+//	        queue = newQueue;
+//
+//	    }
+//
+//	    public T dequeue(){
+//
+//	        if(root==null) return null;
+//	       
+//	        T item = queue[--count];
+//
+//	        queue[count] = null;
+//
+//	         if(count/4 == queue.length) resize(queue.length/2);
+//
+//
+//	         
+//	    return item;
+//	    }
+//	    public T peek(){
+//
+//	       
+//	        if(root==null) return null;
+//	        int firstItem = count-1;
+//	        T item = queue[firstItem];
+//
+//
+//	         
+//	    return item;
+//
+//	    }
+//
+//	    public boolean isEmpty(){
+//	        return count==0;
+//	    }
+//	    public int size(){
+//	        return count;
+//	    }
+
+	
 
 }
