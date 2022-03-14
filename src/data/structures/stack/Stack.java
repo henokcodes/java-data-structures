@@ -73,4 +73,45 @@ public static void main(String[] args) {
 		return count;
 	}
 	
+	//Stack using LinkedList
+//	 private Node<T> root;
+//	    private int count;
+//
+//	    public void push(T data){
+//	        count++;
+//	        if(root==null) root= new Node<>(data);
+//	        else{
+//	            Node<T> newNode = new Node<>(data);
+//	            newNode.setNextNode(root);
+//	            root = newNode;
+//	        }
+//	    }
+//
+//	    public T pop(){
+//	        if(root==null) return null;
+//
+//	        T item = root.getData();
+//	        root = root.getNextNode();
+//	        count--;
+//
+//	            return item;
+//
+//
+//	    }
+//
+//	    public T peek(){
+//	        if(root==null) return null;
+//
+//	        T item = root.getData();
+//	            return item;
+//
+//
+//	    }
+//	    public boolean isEmpty(){
+//	        return count==0;
+//	    }
+//	    public int size(){
+//	        return count;
+//	    }
+	
 }
