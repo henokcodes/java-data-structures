@@ -38,7 +38,29 @@ public class Examples {
 	        // Given string is a palindrome
 	        return true;
 	    }
-	   
+	   public static int waterTap(int[] a){
+
+	        int highest = a[0];
+	        int secondHighest = a[0];
+
+	        for(int i=0;i<a.length;i++){
+	            if(a[i]>highest){
+	                highest = a[i];
+	            }
+	            else if(a[i]>secondHighest){
+	                secondHighest =a[i];
+	            }
+	        }
+	        int dimension = secondHighest*a.length;
+	        
+	        for(int i=0;i<a.length;i++){
+	            if(a[i]>secondHighest) a[i] = secondHighest;
+	            dimension -=a[i];
+	        }
+	        System.out.println(highest+" second: "+secondHighest);
+
+	        return dimension;
+	    }
 	   
 	   public double median(int[] values) {
 	        Arrays.sort(values);
